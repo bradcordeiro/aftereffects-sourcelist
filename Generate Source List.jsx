@@ -1,13 +1,19 @@
+// Currently selected Comp in After Effects
 var comp = app.project.activeItem;
+// Name of the selected Comp in After Effects
 var topCompName = comp.name;
-var output = "";
+// The final output string. Starts off as a header row
+var output = "Layer,Name,Type,Sequence In,Sequence Out,Sequence Duration,In Composition\n";
 
-output += "Layer,Name,Type,Sequence In,Sequence Out,Sequence Duration,In Composition\n";
+// Loop through the layers of the selected Comp and add those layers' info to the output string
 scanComp(comp);
+// Write the output string to a file
 saveCsvFile();
 
-
+// Recursively step through selected comp and any nested precomps, adding each layer's
+// information to the output string
 function scanComp(inputComp, timeLineOffset) {
+    // Loop through the layers in the Comp
     var layerCount = inputComp.numLayers;
     if (timeLineOffset === undefined) {
         timeLineOffset = 0;
@@ -15,28 +21,33 @@ function scanComp(inputComp, timeLineOffset) {
     
     for ( var i = 1; i <= layerCount; i++){
         currentLayer = inputComp.layers[i];
-       
+        printSource(currentLayer, i, currentLayer.name, timeLineOffset);
         if (currentLayer.source instanceof CompItem){
-            printSource (currentLayer, i, currentLayer.containingComp.name, timeLineOffset);
+            // If the current layer is a Comp,  step into it and examine its layers
             scanComp(currentLayer.source, timeLineOffset + currentLayer.inPoint);
-        } else {
-            printSource(currentLayer, i, currentLayer.name, timeLineOffset);
         }
     }
 }
 
 function printSource(layer, index, parentName, timeLineOffset){
+    // will be "footage", "precomp", or "unknown"
     var layerType;
+    // timeLineOffset gets added to the layer's timings so that the times
+    // reflect the layer's timings in the top-level Comp
     var startSeconds = timeLineOffset + layer.inPoint;
     var endSeconds = timeLineOffset + layer.outPoint;
     var duration = endSeconds - startSeconds;
     
+    // Clips played in reverse result in negative durations, but we want
+    // a positive timing in our output
     if (duration < 0) { duration *= -1;}
     
+    // Mark the top-level Composition as (top) for clarity
     if (parentName === topCompName) {
         parentName += " (top)";
     }
 
+    // Determine layer type based on layer's source class
     if (layer.source instanceof FootageItem) {
         layerType = "footage";
     } else if (layer.source instanceof CompItem) {
@@ -44,12 +55,16 @@ function printSource(layer, index, parentName, timeLineOffset){
     } else {
         layerType = "unknown";
     }
-        
+
+    // Layer number, Source name, Source type, In Timecode, Out Timecode, Duration, Comp Name
     var line = index + "," + layer.source.name + "," + layerType + "," + secondsToTimecode(startSeconds) + "," 
                 + secondsToTimecode(endSeconds) + "," + secondsToTimecode(duration) + "," + parentName;
+    // Append current line to the final output string
     output += line + "\n";
  }
 
+// Checking times on layers returns seconds, but we want timecodes in the output
+// Not frame accurate to avoid getting into handing multiple timebases
 function secondsToTimecode(seconds){
     var hours = 0;
     var minutes = 0;
@@ -76,6 +91,7 @@ function secondsToTimecode(seconds){
     return hours + ":" + minutes + ":" + seconds + ":" + frames;
 }
 
+// Used to make sure each timecode field is 2 digits wide
 function padStart(string, padSize, padChar) {
     var length = string.length;
     
