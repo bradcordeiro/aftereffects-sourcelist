@@ -22,10 +22,10 @@ This script was tested on Adobe After Effects CC, on Macintosh. It's meant to wo
 
 No formal installation is required, though you must change one Preference setting for the script to work. In your General preferences, make sure to check "Allow Scripts to Write Files and Access Network". This will allow the script to write the output text file.
 
-Just save the script somewhere on your computer, and use After Effects' File -> Scripts -> Run Script File... menu entry to open and run the script.
-
 ### Usage
 
-Load the composition you'd like to process, and make sure it's the active composition in your work area. Run the script. An alert will pop up telling you the output file name. The output file name is generated automatically, using the composition name, date, and time the script was run. It's saved to your Desktop.
-
-Open the output file in any spreadsheet program that supports comma-separted text (should be all) and enjoy!
+1. Save the script somewhere on your computer.
+2. Load the composition you'd like to process, and make sure it's the active composition in your work area.
+3. Use After Effects' File -> Scripts -> Run Script File... menu entry to open and run the script.
+4. The output .csv file will be saved to your Desktop folder. An alert will pop up telling you the output file name.
+5. Open the output file in any spreadsheet program that supports comma-separted text (should be all) and enjoy!
