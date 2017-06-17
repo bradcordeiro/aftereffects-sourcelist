@@ -4,7 +4,7 @@
 ![Example CSV](https://s3.amazonaws.com/bradcordeiro/aftereffects-sourcelist.png)
 
 ### About
-I recently ran into a situation where a motion graphics artist was generating animated sequences in After Effects, using a bunch of stock footage as sources. After the graphic was finished and it was time to buy the master files, we realized it was going to be pretty tedious to not only generate a source list, but step into every precomp, and get those sources too. Not to mention the potential for human error.
+I recently ran into a situation where a motion graphics artist was generating animated sequences in After Effects, using a bunch of stock footage as sources. After the graphic was finished and it was time to buy licenses for the the stock footage, we realized it was going to be pretty tedious to not only generate a source list, but step into every precomp, and get those sources too. Not to mention the potential for human error. The compositions were fairly complicated, and exporting them to Adobe Premiere to try and have Premiere produce an EDL was not working for us.
 
 That's how this script was born.
 
@@ -24,8 +24,8 @@ No formal installation is required, though you must change one Preference settin
 
 ### Usage
 
-1. Save the script somewhere on your computer.
+1. Download the script and save it somewhere on your computer.
 2. Load the composition you'd like to process, and make sure it's the active composition in your work area.
 3. Use After Effects' File -> Scripts -> Run Script File... menu entry to open and run the script.
 4. The output .csv file will be saved to your Desktop folder. An alert will pop up telling you the output file name.
-5. Open the output file in any spreadsheet program that supports comma-separted text (should be all) and enjoy!
+5. Open the output file in any spreadsheet program that supports comma-separated text (should be all) and enjoy!
