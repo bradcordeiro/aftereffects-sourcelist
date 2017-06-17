@@ -26,6 +26,6 @@ Just save the script somewhere on your computer, and use After Effects' File -> 
 
 ### Usage
 
-Load the composition you'd like to process, and make sure it's the active composition in your work area. Run the script. An alert will pop up telling you the output file name. The output file name is generated automatically, using the composition name, date, and time the script was run.
+Load the composition you'd like to process, and make sure it's the active composition in your work area. Run the script. An alert will pop up telling you the output file name. The output file name is generated automatically, using the composition name, date, and time the script was run. It's saved to your Desktop.
 
 Open the output file in any spreadsheet program that supports comma-separted text (should be all) and enjoy!
