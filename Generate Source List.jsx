@@ -83,10 +83,12 @@ function secondsToTimecode(seconds){
     if ( seconds > 60 ) {
         minutes = Math.floor(seconds / 60);
         seconds %= 60;
-        seconds = padStart(seconds.toString(),2,"0");
+        minutes = padStart(minutes.toString(),2,"0");
     } else {
         minutes = "00";
     }
+
+    seconds = padStart(seconds.toString(),2,"0");
 
     return hours + ":" + minutes + ":" + seconds + ":" + frames;
 }
