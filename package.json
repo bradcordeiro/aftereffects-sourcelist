@@ -1,0 +1,26 @@
+{
+  "name": "aftereffects-sourcelist",
+  "version": "1.0.0",
+  "description": "Generate a timecoded source list for an After Effects composition",
+  "scripts": {
+    "build": "babel ./src/script.js --presets extendscript -o './dst/Generate Source List.jsx'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bradcordeiro/aftereffects-sourcelist.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bradcordeiro/aftereffects-sourcelist/issues"
+  },
+  "homepage": "https://github.com/bradcordeiro/aftereffects-sourcelist#readme",
+  "dependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "babel-preset-extendscript": "^1.0.2",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.2.0",
+    "eslint-plugin-import": "^2.18.2"
+  }
+}
