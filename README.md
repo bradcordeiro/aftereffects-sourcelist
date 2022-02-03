@@ -1,7 +1,7 @@
 # aftereffects-sourcelist
 ### ExtendScript for Adobe After Effects to generate a source list for a composition
 
-![Example CSV](https://s3.amazonaws.com/bradcordeiro/aftereffects-sourcelist.png)
+![Example CSV](https://f001.backblazeb2.com/file/bradcordeiro/aftereffects-sourcelist.png)
 
 ### About
 I recently ran into a situation where a motion graphics artist was generating animated sequences in After Effects, using a bunch of stock footage as sources. After the graphic was finished and it was time to buy licenses for the the stock footage, we realized it was going to be pretty tedious to not only generate a source list, but step into every precomp, and get those sources too. Not to mention the potential for human error. The compositions were fairly complicated, and exporting them to Adobe Premiere to try and have Premiere produce an EDL was not working for us.
